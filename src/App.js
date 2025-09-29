@@ -1,0 +1,42 @@
+import { Route, Routes } from "react-router-dom";
+import "./App.css";
+import Navbar from "./components/Navbar";
+import Home from "./pages/Home";
+import { AuthContextProvider } from "./context/AuthContext";
+import Signup from "./pages/Signup";
+import Account from "./pages/Account";
+import Login from "./pages/Login";
+import ProtectedRoute from "./components/ProtectedRoute";
+import MovieDetail from "./pages/MovieDetail";
+import { Toaster } from "react-hot-toast";
+function App() {
+  return (
+    <>
+      <AuthContextProvider>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
+        <Route path="/movie/:id" element={<MovieDetail />} />
+
+          <Route
+            path="/account"
+            element={
+              <ProtectedRoute>
+                <Account />
+              </ProtectedRoute>
+            }
+          />
+        </Routes>
+      </AuthContextProvider>
+     
+
+
+<Toaster position="top-right" reverseOrder={false} />
+
+    </>
+  );
+}
+
+export default App;
