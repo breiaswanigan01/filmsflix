@@ -6,33 +6,33 @@ const Navbar = () => {
   const { user, logOut } = UserAuth();
   const navigate = useNavigate();
 
-  const [darkMode, setDarkMode] = useState(false);
+  // const [darkMode, setDarkMode] = useState(false);
 
   useEffect(() => {
     const isDark = localStorage.getItem("theme") === "dark";
     const root = document.documentElement;
 
-    if (isDark) {
-      root.classList.add("dark");
-      setDarkMode(true);
-    } else {
-      root.classList.remove("dark");
-      setDarkMode(false);
-    }
+    // if (isDark) {
+    //   root.classList.add("dark");
+    //   setDarkMode(true);
+    // } else {
+    //   root.classList.remove("dark");
+    //   setDarkMode(false);
+    // }
   }, []);
 
-  const toggleDarkMode = () => {
-    const root = document.documentElement;
-    if (darkMode) {
-      root.classList.remove("dark");
-      localStorage.setItem("theme", "light");
-      setDarkMode(false);
-    } else {
-      root.classList.add("dark");
-      localStorage.setItem("theme", "dark");
-      setDarkMode(true);
-    }
-  };
+  // const toggleDarkMode = () => {
+  //   const root = document.documentElement;
+  //   if (darkMode) {
+  //     root.classList.remove("dark");
+  //     localStorage.setItem("theme", "light");
+  //     setDarkMode(false);
+  //   } else {
+  //     root.classList.add("dark");
+  //     localStorage.setItem("theme", "dark");
+  //     setDarkMode(true);
+  //   }
+  // };
 
   const handleLogout = async () => {
     try {
@@ -53,12 +53,12 @@ const Navbar = () => {
         </Link>
 
         {/* Center: Dark Mode */}
-        <button
+        {/* <button
           onClick={toggleDarkMode}
           className="text-white px-4 py-1 border border-gray-400 rounded hover:bg-gray-700 transition"
         >
           {darkMode ? "Light Mode" : "Dark Mode"}
-        </button>
+        </button> */}
 
         {/* Right: Auth */}
         <div className="flex space-x-2">
